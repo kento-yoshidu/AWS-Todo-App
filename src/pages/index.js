@@ -4,12 +4,10 @@ import Img from "gatsby-image"
 
 import Header from "../components/header"
 import Footer from "../components/footer"
+import Layout from "../components/layout"
 
 const IndexPage = ({ data }) => (
-  <div>
-
-    <Header />
-
+  <Layout>
     <section className="hero">
       <figure>
         <Img
@@ -84,10 +82,7 @@ const IndexPage = ({ data }) => (
         />
       </figure>
     </section>
-
-    <Footer />
-
-  </div>
+  </Layout>
 )
 
 export default IndexPage
