@@ -1,11 +1,8 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { graphql } from 'gatsby'
+import Img from "gatsby-image"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <div>
     <header className="header">
       <div className="container">
@@ -26,7 +23,7 @@ const IndexPage = () => (
 
     <section className="hero">
       <figure>
-        <img src="/images/hero.jpg" alt="" />
+        <Img fluid={data.hero.childImageSharp.fluid} alt="" />
       </figure>
       <div className="catch">
         <h1>There is no love sincerer than<br /> the love of food.</h1>
@@ -44,7 +41,7 @@ const IndexPage = () => (
         <div className="details">
           <div className="detail">
             <figure>
-              <img src="/images/fruit.jpg" alt="" />
+              <Img fluid={data.fruit.childImageSharp.fluid} alt="" />
             </figure>
             <h3>フルーツ</h3>
             <p>FRUIT</p>
@@ -53,7 +50,7 @@ const IndexPage = () => (
 
           <div className="detail">
             <figure>
-              <img src="/images/grain.jpg" alt="" />
+              <Img fluid={data.grain.childImageSharp.fluid} alt="" />
             </figure>
             <h3>穀物</h3>
             <p>GRAIN</p>
@@ -62,7 +59,7 @@ const IndexPage = () => (
 
           <div class="detail">
             <figure>
-              <img src="/images/beverage.jpg" alt="" />
+              <Img fluid={data.beverage.childImageSharp.fluid} alt="" />
             </figure>
             <h3>飲み物</h3>
             <p>BEVERAGE</p>
@@ -75,7 +72,7 @@ const IndexPage = () => (
     <section class="photo">
       <h2 class="sr-only">Photo</h2>
       <figure>
-        <img src="/images/berry.jpg" alt="赤く熟したベリー" />
+        <Img fluid={data.berry.childImageSharp.fluid} alt="赤く熟したベリー" />
       </figure>
     </section>
 
@@ -114,3 +111,43 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+export const query = graphql`
+query {
+  hero: file(relativePath: {eq: "hero.jpg"}) {
+    childImageSharp {
+      fluid(maxWidth: 1600) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
+  fruit: file(relativePath: {eq: "fruit.jpg"}) {
+    childImageSharp {
+      fluid(maxWidth: 1600) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
+  grain: file(relativePath: {eq: "grain.jpg"}) {
+    childImageSharp {
+      fluid(maxWidth: 1600) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
+  beverage: file(relativePath: {eq: "beverage.jpg"}) {
+    childImageSharp {
+      fluid(maxWidth: 1600) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
+  berry: file(relativePath: {eq: "berry.jpg"}) {
+    childImageSharp {
+      fluid(maxWidth: 1600) {
+        ...GatsbyImageSharpFluid_withWebp
+      }
+    }
+  }
+}
+`
