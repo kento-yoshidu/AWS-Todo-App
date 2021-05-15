@@ -303,18 +303,27 @@ svg {
 
 /* フッター */
 .footer {
-	padding-top: 60px;
-	padding-bottom: 60px;
+	padding: 60px 0;
+	position: relative;
 	color: #fff;
-    background-image: url(/images/pattern.jpg);
-    background-size: cover;
-    background-color: #477294;
+    /*background-color: #477294;*/
+}
+
+.footer .back {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
 
 .footer .container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	position: relative;
+	z-index: 2;
 }
 
 .footer .site {
