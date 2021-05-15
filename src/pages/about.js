@@ -4,11 +4,19 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 
+import SEO from "../components/seo"
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUtensils, faCheckSquare, faSquare } from "@fortawesome/free-solid-svg-icons"
 
 export default ({ data }) => (
   <Layout>
+
+    <SEO
+      pagetitle="このWebサイトについて"
+      pagedesc="説明"
+    />
+
     <div className="eyecatch">
       <figure>
         <Img 
