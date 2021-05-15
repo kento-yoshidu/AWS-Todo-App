@@ -4,6 +4,7 @@ module.exports = {
     description: `おいしい珈琲`,
     lang: `ja`,
     author: `@gatsbyjs`,
+    siteUrl: `https://gatsbycafesite.netlify.app`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

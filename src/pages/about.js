@@ -9,12 +9,13 @@ import SEO from "../components/seo"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUtensils, faCheckSquare, faSquare } from "@fortawesome/free-solid-svg-icons"
 
-export default ({ data }) => (
+const AboutPage = ({ data, location }) => (
   <Layout>
 
     <SEO
       pagetitle="このWebサイトについて"
       pagedesc="説明"
+      pagepath={location.pathname}
     />
 
     <div className="eyecatch">
@@ -65,6 +66,8 @@ export default ({ data }) => (
     </article>
   </Layout>
 )
+
+export default AboutPage
 
 export const query = graphql`
   query {

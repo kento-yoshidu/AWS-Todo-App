@@ -10,6 +10,7 @@ export default props => {
           title
           lang
           description
+          siteUrl
         }
       }
     }`
@@ -21,11 +22,16 @@ export default props => {
 
   const description = data.site.siteMetadata.description
 
+  const url = props.pagepath
+    ? `${data.site.siteMetadata.siteUrl}${props.pagepath}`
+    : data.site.siteMetadata.siteUrl
+
   return (
     <Helmet>
       <html lang={data.site.siteMetadata.lang} />
       <title>{title}</title>
       <meta name="description" content={description} />
+      <link rel="canonical" herf={url} />
     </Helmet>
   )
 }
