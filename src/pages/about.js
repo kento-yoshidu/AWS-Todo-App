@@ -78,11 +78,11 @@ export const query = graphql`
         fluid(maxWidth: 1600) {
           ...GatsbyImageSharpFluid_withWebp
         }
-      }
-      original {
-        height
-        src
-        width
+        original {
+          height
+          src
+          width
+        }
       }
     }
   }
