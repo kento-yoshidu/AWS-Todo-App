@@ -2,8 +2,6 @@ import * as React from "react"
 import { graphql } from 'gatsby'
 import Img from "gatsby-image"
 
-import Header from "../components/header"
-import Footer from "../components/footer"
 import Layout from "../components/layout"
 
 const IndexPage = ({ data }) => (
