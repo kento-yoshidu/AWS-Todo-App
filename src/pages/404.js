@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 
 import SEO from "../components/seo"
 
-export default ({ location }) => (
+const Page404 = ({ location }) => (
   <Layout>
 
     <SEO
@@ -15,3 +15,5 @@ export default ({ location }) => (
     <h1 style={{ padding: "20vh 0", textAlign: "center", color: "#888" }}>404 Page NOT FOUND</h1>
   </Layout>
 )
+
+export default Page404

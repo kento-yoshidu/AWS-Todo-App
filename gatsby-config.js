@@ -3,8 +3,8 @@ module.exports = {
     title: `GatsbyCafeSite`,
     description: `おいしい珈琲`,
     lang: `ja`,
-    author: `@gatsbyjs`,
     siteUrl: `https://gatsbycafesite.netlify.app`,
+    locale: `ja_JP`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
