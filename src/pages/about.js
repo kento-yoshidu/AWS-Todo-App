@@ -7,14 +7,17 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faUtensils, faCheckSquare, faSquare } from "@fortawesome/free-solid-svg-icons"
+import { faUtensils, faCheckSquare } from "@fortawesome/free-solid-svg-icons"
 
-export default ({ data }) => (
+const AboutPage = ({ data, location }) => (
   <Layout>
 
     <SEO
       pagetitle="このWebサイトについて"
       pagedesc="説明"
+      pagepath={location.pathname}
+      pageimgw={data.about.childImageSharp.original.width}
+      pageimgh={data.about.childImageSharp.original.height}
     />
 
     <div className="eyecatch">
@@ -66,12 +69,19 @@ export default ({ data }) => (
   </Layout>
 )
 
+export default AboutPage
+
 export const query = graphql`
   query {
     about: file(relativePath: {eq: "about.jpg"}) {
       childImageSharp {
         fluid(maxWidth: 1600) {
           ...GatsbyImageSharpFluid_withWebp
+        }
+        original {
+          height
+          src
+          width
         }
       }
     }
