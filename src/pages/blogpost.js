@@ -26,12 +26,7 @@ const options = {
         console.log(node)
       return (
         <img
-          src={node}
-          /*
-          height={node.data.target.fields.file.details.image.height}
-          width={node.data.target.fields.file.details.image.width}
-          alt={node.data.target.fields.description}
-          */
+          src={node.data.target.file.url}
         />
       );
     },
@@ -119,12 +114,16 @@ export const query = graphql`
         description
       }
       content {
+        raw
         references {
-          file {
-            url
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
+            file {
+              url
+            }
           }
         }
-        raw
       }
     }
   }
