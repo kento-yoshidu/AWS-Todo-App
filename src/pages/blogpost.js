@@ -21,15 +21,17 @@ const options = {
       </h2>
     ),
     [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
-      // render the EMBEDDED_ASSET as you need
-        console.log("~~~~~~~~~~~~~~~~~~~")
-        console.log(node)
       return (
         <img
           src={node.data.target.file.url}
         />
       );
     },
+  },
+  renderText: text => {
+    return text.split("\n").reduce((children, textSegment, index) => {
+      return [...children, index > 0 && <br key={index} />, textSegment]
+    }, [])
   }
 }
 
