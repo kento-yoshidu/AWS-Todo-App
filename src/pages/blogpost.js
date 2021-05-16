@@ -21,20 +21,17 @@ const options = {
       </h2>
     ),
     [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
-      // render the EMBEDDED_ASSET as you need
-        console.log("~~~~~~~~~~~~~~~~~~~")
-        console.log(node)
       return (
         <img
-          src={node}
-          /*
-          height={node.data.target.fields.file.details.image.height}
-          width={node.data.target.fields.file.details.image.width}
-          alt={node.data.target.fields.description}
-          */
+          src={node.data.target.file.url}
         />
       );
     },
+  },
+  renderText: text => {
+    return text.split("\n").reduce((children, textSegment, index) => {
+      return [...children, index > 0 && <br key={index} />, textSegment]
+    }, [])
   }
 }
 
@@ -119,12 +116,16 @@ export const query = graphql`
         description
       }
       content {
+        raw
         references {
-          file {
-            url
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
+            file {
+              url
+            }
           }
         }
-        raw
       }
     }
   }
