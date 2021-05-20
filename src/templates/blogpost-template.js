@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
+import SEO from "../components/seo"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheckSquare, faClock, faFolderOpen } from "@fortawesome/free-regular-svg-icons"
@@ -38,6 +39,11 @@ const options = {
 const BlogPost = ({ data, pageContext }) => {
   return (
     <Layout>
+
+      <SEO
+        pagetitle={data.contentfulBlogPost.title}
+      />
+
       <div className="eyecatch">
         <figure>
           <Img
