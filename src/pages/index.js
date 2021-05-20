@@ -92,7 +92,7 @@ export default IndexPage
 
 export const query = graphql`
 query {
-  hero: file(relativePath: {eq: "hero.jpg"}) {
+  hero: file(relativePath: {eq: "hero.webp"}) {
     childImageSharp {
       fluid(maxWidth: 1600) {
         ...GatsbyImageSharpFluid_withWebp
