@@ -8,10 +8,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheckSquare, faClock, faFolderOpen } from "@fortawesome/free-regular-svg-icons"
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons"
 
-//import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import resolveResponse from "contentful-resolve-response"
+
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS } from "@contentful/rich-text-types"
 import { config } from "@fortawesome/fontawesome-svg-core"
+import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"
 
 const options = {
   renderNode: {
@@ -37,11 +40,14 @@ const options = {
 }
 
 const BlogPost = ({ data, pageContext }) => {
+  const desc = documentToPlainTextString(JSON.parse(data.contentfulBlogPost.content.raw)).slice(0, 70)
+
   return (
     <Layout>
 
       <SEO
         pagetitle={data.contentfulBlogPost.title}
+
       />
 
       <div className="eyecatch">
