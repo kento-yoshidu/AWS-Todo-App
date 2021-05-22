@@ -21,7 +21,9 @@ export default props => {
     ? `${props.pagetitle} | ${data.site.siteMetadata.title}`
     : data.site.siteMetadata.description
 
-  const description = data.site.siteMetadata.description
+  const description = props.pagedesc
+    ? props.pagedesc + "..."
+    : data.site.siteMetadata.description
 
   const url = props.pagepath
     ? `${data.site.siteMetadata.siteUrl}${props.pagepath}`
@@ -29,7 +31,7 @@ export default props => {
 
   const imgurl = props.pageimg
     ? `${data.site.siteMetadata.siteUrl}${props.pageimg}`
-    : `${data.site.siteMetadata.siteUrl}/thumb.jpg`
+    : props.blogimg || `${data.site.siteMetadata.siteUrl}/thumb.jpg`
 
   const imgw = props.pageimgw || 1280
   const imgh = props.pageimgh || 640

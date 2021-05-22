@@ -34,6 +34,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
+  /*
+  * 各ブログページ生成
+  */
   blogresult.data.allContentfulBlogPost.edges.forEach(({ node, next, previous }) => {
     createPage({
       path: `/blog/post/${node.slug}/`,
@@ -42,6 +45,28 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         id: node.id,
         next,
         previous,
+      }
+    })
+  })
+
+  /*
+  * ブログリスト生成
+  */
+
+  const blogPostsPerPage = 6
+  const blogPosts = blogresult.data.allContentfulBlogPost.edges.length
+  const blogPages = Math.ceil(blogPosts / blogPostsPerPage)
+
+  Array.from({ length: blogPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/blog/` : `/blog/${i + 1}`,
+      component: path.resolve("./src/templates/bloglist-template.js"),
+      context: {
+        skip: blogPostsPerPage * i,
+        limit: blogPostsPerPage,
+        currentPage: i + 1,
+        isFirst: i + 1 === 1,
+        isLast: i + 1 === blogPages,
       }
     })
   })
