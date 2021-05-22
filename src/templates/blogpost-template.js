@@ -8,12 +8,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheckSquare, faClock, faFolderOpen } from "@fortawesome/free-regular-svg-icons"
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons"
 
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import resolveResponse from "contentful-resolve-response"
+//import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+//import resolveResponse from "contentful-resolve-response"
 
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS } from "@contentful/rich-text-types"
-import { config } from "@fortawesome/fontawesome-svg-core"
+//import { config } from "@fortawesome/fontawesome-svg-core"
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"
 
 const options = {
@@ -39,15 +39,20 @@ const options = {
   }
 }
 
-const BlogPost = ({ data, pageContext }) => {
-  const desc = documentToPlainTextString(JSON.parse(data.contentfulBlogPost.content.raw)).slice(0, 70)
+const BlogPost = ({ data, pageContext, location }) => {
+
+  const description = documentToPlainTextString(JSON.parse(data.contentfulBlogPost.content.raw)).slice(0, 70)
 
   return (
     <Layout>
 
       <SEO
         pagetitle={data.contentfulBlogPost.title}
-
+        pagedesc={description}
+        pagepth={location.pathname}
+        blogimg={`https:${data.contentfulBlogPost.eyecatch.file.url}`}
+        pageimgw={data.contentfulBlogPost.eyecatch.file.details.image.width}
+        pageimg={data.contentfulBlogPost.eyecatch.file.details.image.height}
       />
 
       <div className="eyecatch">
@@ -130,6 +135,14 @@ export const query = graphql`
           ...GatsbyContentfulFluid_withWebp
         }
         description
+        file {
+          details {
+            image {
+              width
+              height
+            }
+          }
+        }
       }
       content {
         raw
