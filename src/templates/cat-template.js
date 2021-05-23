@@ -49,8 +49,8 @@ const CatBlogList = ({data, location, pageContext}) => (
               <Link
                 to={
                   pageContext.currentPage === 2
-                    ? `/blog/`
-                    : `/blog/${pageContext.currentPage - 1}/`
+                    ? `/cat/${pageContext.catslug}`
+                    : `/cat/${pageContext.catslug}/${pageContext.currentPage - 1}`
                 }
                 rel="prev"
               >
@@ -64,7 +64,7 @@ const CatBlogList = ({data, location, pageContext}) => (
             <li className="next">
               <Link
                 to={
-                  `/blog/${pageContext.currentPage + 1}/`
+                  `/cat/${pageContext.catslug}/${pageContext.currentPage + 1}/`
                 }
                 rel="next"
               >
