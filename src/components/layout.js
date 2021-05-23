@@ -3,7 +3,7 @@ import React from "react"
 import Header from "./header"
 import Footer from "./footer"
 
-import "./layout.css"
+import "../scss/layout.scss"
 
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
