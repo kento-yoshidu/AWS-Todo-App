@@ -4,11 +4,11 @@ import { Link } from "gatsby"
 export default () => (
   <header className="header">
     <div className="container">
-      <div className="site">
+      <h1 className="header-title">
         <Link to={`/`}>
           GatsbyCafeSite
         </Link>
-      </div>
+      </h1>
       
       <nav className="nav">
         <ul>
