@@ -1,10 +1,8 @@
 @charset "UTF-8";
 
-/* 基本 */
-body {
-	font-family: sans-serif;
-	color: #222;
-}
+@import "./base";
+@import "./header";
+@import "./hero";
 
 .container {
 	width: 84%;
@@ -41,14 +39,6 @@ svg {
 	vertical-align: bottom;
 }
 
-.nav, 
-.catch h1, 
-.food h2, 
-.detail p:first-of-type,
-.info .subtitle {
-	font-family: 'Avenir Next', 'Segoe UI', Helvetica, sans-serif;
-}
-
 .sr-only {
 	border: 0; 
 	clip: rect(0 0 0 0); 
@@ -58,115 +48,6 @@ svg {
 	padding: 0;
 	position: absolute;
 	width: 1px;
-}
-
-
-/* ヘッダー */
-.header .container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	height: 134px;
-	text-align: center;
-}
-
-.nav ul {
-	display: flex;
-	justify-content: center;
-	list-style: none;
-	margin-top: 18px;
-	color: #477294;
-}
-
-.nav li:not(:last-child) {
-	margin-right: 55px;
-}
-
-@media (min-width: 768px) {
-	.nav ul {
-		margin-top: 0;
-	}
-	.header .container {
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		height: 100px;
-	}
-}
-
-
-/* ヒーロー */
-.hero {
-	position: relative;
-}
-
-.hero figure {
-	max-height: 100%;
-	height: 450px;
-}
-
-.hero figure img {
-	width: 100%;
-	height: 450px;
-	object-fit: cover;
-}
-
-.hero .catch {
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	margin: auto auto 10%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: center;
-	color: #fff;
-	text-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
-
-.hero .catch h1 {
-	font-size: 20px;
-	margin-bottom: 10px;
-}
-.hero .catch p {
-	font-size: 10px;
-}
-
-.hero .wave {
-	position: absolute;
-	right: 0;
-	bottom: -10px;
-	left: 0;
-	margin: auto;
-	width: 100%;
-}
-
-@media (min-width: 768px) {
-	.hero figure {
-		height: 750px;
-	}
-	.hero figure img {
-		height: 750px;
-	}
-	.hero .catch h1 {
-		font-size: 40px;
-		margin-bottom: 30px;
-	}
-	.hero .catch p {
-		font-size: 16px;
-	}
-}
-
-@media (min-width: 900px) {
-	.hero .catch h1 {
-		font-size: 56px;
-		margin-bottom: 30px;
-	}
-	.hero .catch p {
-		font-size: 24px;
-	}
 }
 
 

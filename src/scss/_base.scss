@@ -1,0 +1,13 @@
+$main-color: #399;
+
+html {
+  font-size: 62.5%;
+	font-family: 'Avenir Next', 'Segoe UI', Helvetica, sans-serif;
+	color: #444;
+}
+
+a {
+  &:hover {
+    color: $main-color;
+  }
+}
