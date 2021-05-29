@@ -17,7 +17,7 @@ const IndexPage = ({ data }) => (
       fluid={data.hero.childImageSharp.fluid}
     />
 
-    <section className="food">
+    <section className="items">
       <div className="container">
         <h2 className="bar">Food <span>Essence</span></h2>
 
