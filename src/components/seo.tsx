@@ -1,8 +1,14 @@
-import React from "react"
+import * as React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-export default props => {
+type Props = {
+  pageTitle?: string
+  pageDesc?: string
+  pagePath?: string
+  pageimg?: string
+}
+const Seo: React.VFC<Props> = props => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -17,16 +23,16 @@ export default props => {
     }`
   )
 
-  const title = props.pagetitle
-    ? `${props.pagetitle} | ${data.site.siteMetadata.title}`
+  const title = props.pageTitle
+    ? `${props.pageTitle} | ${data.site.siteMetadata.title}`
     : data.site.siteMetadata.description
 
-  const description = props.pagedesc
-    ? props.pagedesc + "..."
+  const description = props.pageDesc
+    ? props.pageDesc + "..."
     : data.site.siteMetadata.description
 
-  const url = props.pagepath
-    ? `${data.site.siteMetadata.siteUrl}${props.pagepath}`
+  const url = props.pagePath
+    ? `${data.site.siteMetadata.siteUrl}${props.pagePath}`
     : data.site.siteMetadata.siteUrl
 
   const imgurl = props.pageimg
@@ -41,7 +47,7 @@ export default props => {
       <html lang={data.site.siteMetadata.lang} />
       <title>{title}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" herf={url} />
+      <link rel="canonical" href={url} />
 
       <meta property="og:site_name" content={data.site.siteMetadata.title} />
       <meta property="og:title" content={title} />
@@ -59,3 +65,5 @@ export default props => {
     </Helmet>
   )
 }
+
+export default Seo

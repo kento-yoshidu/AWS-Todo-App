@@ -2,13 +2,16 @@ import * as React from "react"
 import { graphql, Link } from 'gatsby'
 import Img from "gatsby-image"
 
-import Hero from "../components/hero"
 
 import SEO from "../components/seo"
+import Header from "../components/header"
+import Hero from "../components/hero"
 
 const IndexPage = ({ data }) => (
   <>
     <SEO />
+
+    <Header />
 
     <Hero
       title="hoge"
