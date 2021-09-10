@@ -10,14 +10,31 @@ import {
   faChevronRight
 } from "@fortawesome/free-solid-svg-icons"
 
-const BlogList = ({data, location, pageContext}) => (
+type PageContext = {
+  skip: number,
+  limit: number,
+  currentPage: number,
+  isFirst: boolean,
+  isLast: boolean
+}
+
+type Props = {
+  data: GatsbyTypes.BlogListQuery,
+  location: {
+    pathname: string
+  },
+  pageContext: PageContext
+}
+
+const BlogList: React.VFC<Props> = ({data, location, pageContext}) => (
   <>
 
     <SEO 
-      pagetitle="ブログ"
-      pagedesc="ブログです。"
-      pagepath={location.pathname}
+      pageTitle="ブログ"
+      pageDesc="ブログです。"
+      pagePath={location.pathname}
     />
+
     <section className="content bloglist">
       <div className="container">
         <h1 className="bar">RECENT POSTS</h1>
@@ -31,8 +48,8 @@ const BlogList = ({data, location, pageContext}) => (
               <Link to={`/blog/post/${node.slug}`}>
                 <figure>
                   <Img
-                    fluid={node.eyecatch.fluid}
-                    alt={node.eyecatch.description}
+                    fluid={node.eyecatch?.fluid}
+                    alt={node.eyecatch?.description}
                     style={{ height: "100%" }}
                   />
                 </figure>
@@ -79,7 +96,7 @@ const BlogList = ({data, location, pageContext}) => (
 )
 
 export const query = graphql`
-query($skip: Int!, $limit: Int!) {
+query BlogList($skip: Int!, $limit: Int!) {
   allContentfulBlogPost(
     sort: {
       order: DESC,
