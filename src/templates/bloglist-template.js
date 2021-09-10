@@ -2,7 +2,6 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -12,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 
 const BlogList = ({data, location, pageContext}) => (
-  <Layout>
+  <>
 
     <SEO 
       pagetitle="ブログ"
@@ -76,7 +75,7 @@ const BlogList = ({data, location, pageContext}) => (
         </ul>
       </div>
     </section>
-  </Layout>
+  </>
 )
 
 export const query = graphql`

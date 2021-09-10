@@ -7,6 +7,7 @@ module.exports = {
     locale: `ja_JP`,
   },
   plugins: [
+    `gatsby-plugin-typescript`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
