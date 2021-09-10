@@ -38,7 +38,28 @@ const options = {
   }
 }
 
-const BlogPost = ({ data, pageContext, location }) => {
+type PageContext = {
+  id: number,
+  next: {
+    slug: string,
+    title: string
+  }
+  previous: {
+    slug: string,
+    title:string
+  }
+}
+
+type Props = {
+  data: GatsbyTypes.BlogPostQuery,
+  pageContext: PageContext,
+  location: {
+    pathname: string
+  }
+
+}
+
+const BlogPost: React.VFC<Props> = ({ data, pageContext, location }) => {
 
   const description = documentToPlainTextString(JSON.parse(data.contentfulBlogPost.content.raw)).slice(0, 70)
 
@@ -46,19 +67,19 @@ const BlogPost = ({ data, pageContext, location }) => {
     <>
 
       <SEO
-        pagetitle={data.contentfulBlogPost.title}
+        pagetitle={data.contentfulBlogPost?.title}
         pagedesc={description}
         pagepth={location.pathname}
-        blogimg={`https:${data.contentfulBlogPost.eyecatch.file.url}`}
-        pageimgw={data.contentfulBlogPost.eyecatch.file.details.image.width}
-        pageimg={data.contentfulBlogPost.eyecatch.file.details.image.height}
+        blogimg={`https:${data.contentfulBlogPost?.eyecatch?.file?.url}`}
+        pageimgw={data.contentfulBlogPost?.eyecatch?.file?.details?.image?.width}
+        pageimg={data.contentfulBlogPost?.eyecatch?.file?.details?.image?.height}
       />
 
       <div className="eyecatch">
         <figure>
           <Img
-            fluid={data.contentfulBlogPost.eyecatch.fluid}
-            alt={data.contentfulBlogPost.eyecatch.description}
+            fluid={data.contentfulBlogPost?.eyecatch?.fluid}
+            alt={data.contentfulBlogPost?.eyecatch?.description}
           />
         </figure>
       </div>
@@ -66,21 +87,21 @@ const BlogPost = ({ data, pageContext, location }) => {
       <article className="content">
         <div className="container">
           <h1 className="bar">
-            {data.contentfulBlogPost.title}
+            {data.contentfulBlogPost?.title}
           </h1>
 
           <aside className="info">
-            <time datetime={data.contentfulBlogPost.publishDate}>
+            <time datetime={data.contentfulBlogPost?.publishDate}>
               <FontAwesomeIcon icon={faClock} />
-              {data.contentfulBlogPost.publishDateJP}
+              {data.contentfulBlogPost?.publishDateJP}
             </time>
 
             <div className="cat">
               <FontAwesomeIcon icon={faFolderOpen} />
               <ul>
-                {data.contentfulBlogPost.category.map(category => (
-                  <li className={category.categorySlug} key={category.id}>
-                    <Link to={`/cat/${category.categorySlug}/`}>{category.category}</Link>
+                {data.contentfulBlogPost?.category?.map(category => (
+                  <li className={category?.categorySlug} key={category?.id}>
+                    <Link to={`/cat/${category?.categorySlug}/`}>{category?.category}</Link>
                   </li>
                 ))}
               </ul>
@@ -88,7 +109,7 @@ const BlogPost = ({ data, pageContext, location }) => {
           </aside>
 
           <div className="postbody">
-            {renderRichText(data.contentfulBlogPost.content, options)}
+            {renderRichText(data.contentfulBlogPost?.content, options)}
           </div>
 
           <ul className="postlink">
@@ -119,7 +140,7 @@ const BlogPost = ({ data, pageContext, location }) => {
 export default BlogPost
 
 export const query = graphql`
-  query($id: String!) {
+  query BlogPost($id: String!) {
     contentfulBlogPost(id: { eq: $id }) {
       title
       publishDateJP: publishDate(formatString: "YYYY年MM月DD日")

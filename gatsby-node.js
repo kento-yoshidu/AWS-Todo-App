@@ -52,7 +52,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   blogresult.data.allContentfulBlogPost.edges.forEach(({ node, next, previous }) => {
     createPage({
       path: `/blog/post/${node.slug}/`,
-      component: path.resolve(`./src/templates/blogpost-template.js`),
+      component: path.resolve(`./src/templates/blogpost-template.tsx`),
       context: {
         id: node.id,
         next,
