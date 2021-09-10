@@ -2,16 +2,13 @@ import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
-import Layout from "../components/layout"
-
 import SEO from "../components/seo"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUtensils, faCheckSquare } from "@fortawesome/free-solid-svg-icons"
 
 const AboutPage = ({ data, location }) => (
-  <Layout>
-
+  <>
     <SEO
       pagetitle="このWebサイトについて"
       pagedesc="説明"
@@ -66,7 +63,7 @@ const AboutPage = ({ data, location }) => (
         </div>
       </div>
     </article>
-  </Layout>
+  </>
 )
 
 export default AboutPage

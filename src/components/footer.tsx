@@ -9,7 +9,7 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons"
 
-export default () => {
+const Footer = () => {
   const data = useStaticQuery(graphql`
     query {
       pattern: file(relativePath: {eq: "pattern.jpg"}) {
@@ -23,9 +23,9 @@ export default () => {
   `)
 
   return (
-    <footer class="footer">
-      <div class="container">
-        <div class="site">
+    <footer className="footer">
+      <div className="container">
+        <div className="site">
         <a href="base-index.html">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -43,23 +43,23 @@ export default () => {
         </a>
         </div>
 
-        <ul class="sns">
+        <ul className="sns">
           <li>
             <a href="https://twitter.com/">
               <FontAwesomeIcon icon={faTwitter} />
-              <span class="sr-only">Twitter</span>
+              <span className="sr-only">Twitter</span>
             </a>
           </li>
           <li>
             <a href="https://facebook.com/">
               <FontAwesomeIcon icon={faFacebookSquare} />
-              <span class="sr-only">Facebook</span>
+              <span className="sr-only">Facebook</span>
             </a>
           </li>
           <li>
             <a href="http://instagram.com/">
               <FontAwesomeIcon icon={faInstagram} />
-              <span class="sr-only">Instagram</span>
+              <span className="sr-only">Instagram</span>
             </a>
           </li>
         </ul>
@@ -75,3 +75,5 @@ export default () => {
     </footer>
   )
 }
+
+export default Footer
