@@ -1,0 +1,60 @@
+/* ヒーロー */
+.hero {
+  background-color: rgb(247, 244, 234);
+	.wrapper {
+		position: relative;
+		width: 90%;
+		margin: 20px auto;
+	}
+	figure {
+		max-height: 100%;
+		height: 70vh;
+		img {
+			border-radius: 20px;
+			width: 100%;
+			height: 70vh;
+			object-fit: cover;
+		}
+	}
+	.siteTitleWrapper {
+		position: absolute;
+		top: 40%;
+		left: 0;
+		right: 0;
+		transform: translateY(-50%);
+		margin: 0 auto;
+		width: 80%;
+		text-align: center;
+		color: #fff;
+		text-shadow: 0 0 20px rgba(0,0,0,0.5);
+
+		h1 {
+			margin-bottom: 20px;
+			font-size: 3.5rem;
+			font-weight: 400;
+			letter-spacing: 2px;
+		}
+		p {
+			font-size: 2rem;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.hero {
+		figure {
+			height: 700px;
+			img {
+				height: 700px;
+			}
+		}
+		.siteTitleWrapper {
+			h1 {
+				font-size: 10rem;
+			}
+			p {
+				font-size: 3rem;
+			}
+		}
+	}
+}

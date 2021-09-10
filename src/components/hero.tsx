@@ -1,13 +1,15 @@
 import React from "react"
 import Img from "gatsby-image"
 
+const Styles = require("../styles/_hero.module.scss")
+
 const Hero = (props) => {
   const title = props.title
   const fluid = props.fluid
 
   return (
-    <section className="hero">
-      <div className="wrapper">
+    <section className={Styles.hero}>
+      <div className={Styles.wrapper}>
         <figure>
           <Img
             fluid={fluid}
@@ -16,7 +18,7 @@ const Hero = (props) => {
           />
         </figure>
 
-        <div className="site-title-wrapper">
+        <div className={Styles.siteTitleWrapper}>
           <h1>
             GatsbyCafeSite
           </h1>

@@ -1,34 +1,7 @@
-@charset "UTF-8";
-
-@import "./base";
-@import "./header";
-@import "./hero";
-@import "./items";
-
 .container {
 	width: 84%;
 	max-width: 1147px;
 	margin: 0 auto;
-}
-
-body, h1, h2, h3, h4, h5, h6, p, ul, figure {
-	margin: 0;
-	padding: 0;
-}
-
-a {
-	color: inherit;
-	text-decoration: none;
-}
-
-a:hover {
-	opacity: 0.8;
-}
-
-img {
-	width: 100%;
-	height: auto;
-	vertical-align: bottom;
 }
 
 .site img {
@@ -99,27 +72,6 @@ svg {
 	}
 	.content .bar::after {
 		width: 81%;
-	}
-}
-
-
-/* フォト */
-.photo figure {
-	max-height: 100%;
-	height: 170px;
-}
-.photo img {
-	width: 100%;
-	height: 170px;
-	object-fit: cover;
-}
-
-@media (min-width: 768px) {
-	.photo figure {
-		height: 367px;
-	}
-	.photo img {
-		height: 367px;
 	}
 }
 
@@ -328,48 +280,6 @@ svg {
 .bloglist .posts {
 	padding-top: 20px;
 	padding-bottom: 20px;
-}
-
-/* ブログ記事一覧 */
-.posts {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	padding-top: 50px;
-	padding-bottom: 50px;
-}
-
-.posts article {
-	width: 48%;
-	margin-bottom: 20px;
-}
-
-.posts figure {
-	max-height: 100%;
-	height: 150px;
-}
-
-.posts img {
-	height: 150px;
-	object-fit: cover;
-}
-.posts h3 {
-	margin-top: 10px;
-	font-size: 14px;
-}
-
-@media (min-width: 768px) {
-	.posts h3 {
-		font-size: 16px;
-	}
-
-	.posts figure {
-		height: 200px;
-	}
-
-	.posts img {
-		height: 200px;
-	}
 }
 
 
