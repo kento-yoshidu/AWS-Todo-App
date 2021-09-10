@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Layout from "../components/layout"
 import Img from "gatsby-image"
 import SEO from "../components/seo"
 
@@ -44,7 +43,7 @@ const BlogPost = ({ data, pageContext, location }) => {
   const description = documentToPlainTextString(JSON.parse(data.contentfulBlogPost.content.raw)).slice(0, 70)
 
   return (
-    <Layout>
+    <>
 
       <SEO
         pagetitle={data.contentfulBlogPost.title}
@@ -113,7 +112,7 @@ const BlogPost = ({ data, pageContext, location }) => {
 
         </div>
       </article>
-    </Layout>
+    </>
   )
 }
 

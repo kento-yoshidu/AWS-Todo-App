@@ -2,15 +2,16 @@ import * as React from "react"
 import { graphql, Link } from 'gatsby'
 import Img from "gatsby-image"
 
-import Layout from "../components/layout"
-import Hero from "../components/hero"
 
 import SEO from "../components/seo"
+import Header from "../components/header"
+import Hero from "../components/hero"
 
 const IndexPage = ({ data }) => (
-  <Layout>
-
+  <>
     <SEO />
+
+    <Header />
 
     <Hero
       title="hoge"
@@ -40,7 +41,7 @@ const IndexPage = ({ data }) => (
             <p>食事の基本となる穀物。<br />毎日の活動のエネルギー源になります。</p>
           </div>
 
-          <div class="detail">
+          <div className="detail">
             <figure>
               <Img fluid={data.beverage.childImageSharp.fluid} alt="" />
             </figure>
@@ -52,8 +53,8 @@ const IndexPage = ({ data }) => (
       </div>
     </section>
 
-    <section class="photo">
-      <h2 class="sr-only">Photo</h2>
+    <section className="photo">
+      <h2 className="sr-only">Photo</h2>
       <figure>
         <Img
           fluid={data.berry.childImageSharp.fluid}
@@ -88,7 +89,7 @@ const IndexPage = ({ data }) => (
         </div>
       </div>
     </section>
-  </Layout>
+  </>
 )
 
 export default IndexPage

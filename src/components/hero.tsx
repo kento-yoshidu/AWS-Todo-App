@@ -1,13 +1,13 @@
 import React from "react"
 import Img from "gatsby-image"
 
-export default props => {
+const Hero = (props) => {
   const title = props.title
   const fluid = props.fluid
 
   return (
     <section className="hero">
-      <div class="wrapper">
+      <div className="wrapper">
         <figure>
           <Img
             fluid={fluid}
@@ -26,3 +26,5 @@ export default props => {
     </section>
   )
 }
+
+export default Hero
