@@ -13,7 +13,6 @@
 		width: 84%;
 		max-width: 1147px;
 		margin: 0 auto;
-		border: 1px solid red;
 	}
 
 	.back {
@@ -32,6 +31,21 @@
 			margin-bottom: 50px;
 			font-size: 14px;
 		}
+		img {
+			width: auto;
+			max-width: 100%;
+		}
+		svg {
+			vertical-align: bottom;
+		}
+	}
+	.sns {
+		display: flex;
+		list-style: none;
+		font-size: 40px;
+		& li:not(:last-child) {
+			margin-right: 30px;
+		}
 	}
 }
 
@@ -48,34 +62,13 @@
 		}
 		.site {
 			text-align: left;
-		}
-		.site p {
-			margin-top: 10px;
-			margin-bottom: 0;
-			font-size: 18px;
+			p {
+				margin-top: 10px;
+				margin-bottom: 0;
+				font-size: 18px;
+			}
 		}
 	}
 }
 
-
-
-.site img {
-	width: auto;
-	max-width: 100%;
-}
-
-svg {
-	vertical-align: bottom;
-}
-
-/* SNSメニュー */
-.sns {
-	display: flex;
-	list-style: none;
-	font-size: 40px;
-}
-
-.sns li:not(:last-child) {
-	margin-right: 30px;
-}
 

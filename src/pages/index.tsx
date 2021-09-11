@@ -1,10 +1,13 @@
 import * as React from "react"
 import { graphql, Link } from 'gatsby'
+import { StaticImage } from "gatsby-plugin-image"
 import Img from "gatsby-image"
 
 import SEO from "../components/seo"
-import Header from "../components/header"
-import Hero from "../components/hero"
+import FixedHeader from "../components/FixedHeader"
+import Footer from "../components/footer"
+
+import Hero from "../images/hero.jpg"
 
 const Styles = require("../styles/_index.module.scss")
 
@@ -15,12 +18,18 @@ const IndexPage: React.VFC<Props> = ({ data }) => (
   <>
     <SEO />
 
-    <Header />
+    {/*<FixedHeader />*/}
 
-    <Hero
-      title="hoge"
-      fluid={data.hero?.childImageSharp?.fluid}
-    />
+    <header className={Styles.header}>
+      <img
+        src={ Hero }
+        alt="ヘッダー画像"
+        className="img"
+      />
+      <h1>
+        Gatsby Cafe Site
+      </h1>
+    </header>
 
     <section className={Styles.items}>
       <div className={Styles.container}>
@@ -93,6 +102,8 @@ const IndexPage: React.VFC<Props> = ({ data }) => (
         </div>
       </div>
     </section>
+
+    <Footer />
   </>
 )
 
