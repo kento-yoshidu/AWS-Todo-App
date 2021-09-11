@@ -1,6 +1,37 @@
+.header {
+	position: relative;
+	//margin-top: 60px;
+	//height: calc(100vh - 60px);
+	height: 100vh;
+	width: 100%;
+
+	h1 {
+		position: absolute;
+		top: 30%;
+		left: 45%;
+		font-size: 6rem;
+		transform: translate(-50%, -50%);
+		font-weight: 500;
+		background-color: saddlebrown;
+		padding: 10px 20px;
+	}
+
+	img {
+		width: 50%;
+		height: 100vh;
+	}
+	color: #ddd;
+}
+
+@media screen and (maz-width: 768px) {
+	.header {
+		.img {
+			width: 100%;
+		}
+	}	
+}
 /* フード */
 .items {
-  background-color: rgb(247, 244, 234);
 	padding: 30px 0;
 	text-align: center;
 	border: 1px solid red;
