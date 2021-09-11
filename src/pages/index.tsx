@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import Hero from "../components/hero"
+import Footer from "../components/footer"
 
 const Styles = require("../styles/_index.module.scss")
 
@@ -93,6 +94,8 @@ const IndexPage: React.VFC<Props> = ({ data }) => (
         </div>
       </div>
     </section>
+
+    <Footer />
   </>
 )
 

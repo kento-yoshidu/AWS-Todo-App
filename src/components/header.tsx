@@ -1,16 +1,18 @@
 import React from 'react'
 import { Link } from "gatsby"
 
+const Styles = require("../styles/_header.module.scss")
+
 const Header = () => (
-  <header className="header">
-    <div className="container">
-      <h1 className="header-title">
+  <header className={Styles.header}>
+    <div className={Styles.container}>
+      <h1 className={Styles.headerTitle}>
         <Link to={`/`}>
           GatsbyCafeSite
         </Link>
       </h1>
       
-      <nav className="nav">
+      <nav className={Styles.nav}>
         <ul>
           <li>
             <Link to={`/`}>TOP</Link>
