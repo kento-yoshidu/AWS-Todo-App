@@ -15,6 +15,8 @@ import { BLOCKS } from "@contentful/rich-text-types"
 //import { config } from "@fortawesome/fontawesome-svg-core"
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"
 
+const Styles = require("../styles/_blogPost.module.scss")
+
 const options = {
   renderNode: {
     [BLOCKS.HEADING_2]: (node, children) => (

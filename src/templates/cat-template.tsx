@@ -10,13 +10,30 @@ import {
   faChevronRight
 } from "@fortawesome/free-solid-svg-icons"
 
-const CatBlogList = ({data, location, pageContext}) => (
+type Props = {
+  data: GatsbyTypes.CatBlogListQuery,
+  location: {
+    pathname: string,
+  },
+  pageContext: {
+    catid: number,
+    catname: string,
+    catslug: string,
+    skip: number,
+    limit: number,
+    currentPage: number,
+    isFirst: boolean,
+    isLast: boolean
+  }
+}
+
+const CatBlogList: React.VFC<Props> = ({data, location, pageContext}) => (
   <>
 
     <SEO 
-      pagetitle={`CATEGORY: ${pageContext.catname}`}
-      pagedesc={`「${pageContext.catname}」カテゴリの記事一覧です。`}
-      pagepath={location.pathname}
+      pageTitle={`CATEGORY: ${pageContext.catname}`}
+      pageDesc={`「${pageContext.catname}」カテゴリの記事一覧です。`}
+      pagePath={location.pathname}
     />
 
     <section className="content bloglist">
@@ -32,8 +49,8 @@ const CatBlogList = ({data, location, pageContext}) => (
               <Link to={`/blog/post/${node.slug}`}>
                 <figure>
                   <Img
-                    fluid={node.eyecatch.fluid}
-                    alt={node.eyecatch.description}
+                    fluid={node.eyecatch?.fluid}
+                    alt={node.eyecatch?.description}
                     style={{ height: "100%" }}
                   />
                 </figure>
@@ -80,7 +97,7 @@ const CatBlogList = ({data, location, pageContext}) => (
 )
 
 export const query = graphql`
-query($catid: String!, $skip: Int!, $limit: Int!) {
+query CatBlogList($catid: String!, $skip: Int!, $limit: Int!) {
   allContentfulBlogPost(
     sort: {
       order: DESC,

@@ -2,12 +2,16 @@ import * as React from "react"
 import { graphql, Link } from 'gatsby'
 import Img from "gatsby-image"
 
-
 import SEO from "../components/seo"
 import Header from "../components/header"
 import Hero from "../components/hero"
 
-const IndexPage = ({ data }) => (
+const Styles = require("../styles/_index.module.scss")
+
+type Props = {
+  data: GatsbyTypes.IndexPageQuery
+}
+const IndexPage: React.VFC<Props> = ({ data }) => (
   <>
     <SEO />
 
@@ -15,35 +19,35 @@ const IndexPage = ({ data }) => (
 
     <Hero
       title="hoge"
-      fluid={data.hero.childImageSharp.fluid}
+      fluid={data.hero?.childImageSharp?.fluid}
     />
 
-    <section className="items">
-      <div className="container">
+    <section className={Styles.items}>
+      <div className={Styles.container}>
         <h2 className="bar">Food <span>Essence</span></h2>
 
-        <div className="details">
-          <div className="detail">
+        <div className={Styles.details}>
+          <div className={Styles.detail}>
             <figure>
-              <Img fluid={data.fruit.childImageSharp.fluid} alt="" />
+              <Img fluid={data.fruit?.childImageSharp?.fluid} alt="" />
             </figure>
             <h3>フルーツ</h3>
             <p>FRUIT</p>
             <p>甘くてすっぱくておいしい果実たち。<br />旬のフルーツを満喫します。</p>
           </div>
 
-          <div className="detail">
+          <div className={Styles.detail}>
             <figure>
-              <Img fluid={data.grain.childImageSharp.fluid} alt="" />
+              <Img fluid={data.grain?.childImageSharp?.fluid} alt="" />
             </figure>
             <h3>穀物</h3>
             <p>GRAIN</p>
             <p>食事の基本となる穀物。<br />毎日の活動のエネルギー源になります。</p>
           </div>
 
-          <div className="detail">
+          <div className={Styles.detail}>
             <figure>
-              <Img fluid={data.beverage.childImageSharp.fluid} alt="" />
+              <Img fluid={data.beverage?.childImageSharp?.fluid} alt="" />
             </figure>
             <h3>飲み物</h3>
             <p>BEVERAGE</p>
@@ -53,7 +57,7 @@ const IndexPage = ({ data }) => (
       </div>
     </section>
 
-    <section className="photo">
+    <section className={Styles.photo}>
       <h2 className="sr-only">Photo</h2>
       <figure>
         <Img
@@ -65,20 +69,20 @@ const IndexPage = ({ data }) => (
     </section>
 
     <section>
-      <div className="container">
+      <div className={Styles.container}>
         <h1 className="sr-only">RECENT POSTS</h1>
 
-        <div className="posts">
+        <div className={Styles.posts}>
           {data.allContentfulBlogPost.edges.map(({ node }) => (
             <article
-              className="post"
+              className={Styles.post}
               key={node.id}
             >
               <Link to={`/blog/post/${node.slug}`}>
                 <figure>
                   <Img
-                    fluid={node.eyecatch.fluid}
-                    alt={node.eyecatch.description}
+                    fluid={node.eyecatch?.fluid}
+                    alt={node.eyecatch?.description}
                     style={{ height: "100%" }}
                   />
                 </figure>
@@ -95,7 +99,7 @@ const IndexPage = ({ data }) => (
 export default IndexPage
 
 export const query = graphql`
-query {
+query IndexPage{
   hero: file(relativePath: {eq: "hero.jpg"}) {
     childImageSharp {
       fluid(maxWidth: 1600) {

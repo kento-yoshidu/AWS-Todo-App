@@ -95,7 +95,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           i === 0
             ? `/cat/${node.categorySlug}/`
             : `/cat/${node.categorySlug}/${i + 1}`,
-        component: path.resolve(`./src/templates/cat-template.js`),
+        component: path.resolve(`./src/templates/cat-template.tsx`),
         context: {
           catid: node.id,
           catname: node.category,
