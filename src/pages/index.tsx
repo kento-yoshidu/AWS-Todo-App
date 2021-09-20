@@ -21,11 +21,14 @@ const IndexPage: React.VFC<Props> = ({ data }) => (
     {/*<FixedHeader />*/}
 
     <header className={Styles.header}>
-      <img
-        src={ Hero }
-        alt="ヘッダー画像"
-        className="img"
-      />
+      <div className={Styles.imgWrapper}>
+        <img
+          src={ Hero }
+          alt="ヘッダー画像"
+          className="img"
+        />
+      </div>
+
       <h1>
         Gatsby Cafe Site
       </h1>
