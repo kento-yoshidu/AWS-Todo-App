@@ -2,7 +2,8 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
-import SEO from "../components/seo"
+import Layout from "../components/layout"
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -27,14 +28,11 @@ type Props = {
 }
 
 const BlogList: React.VFC<Props> = ({data, location, pageContext}) => (
-  <>
-
-    <SEO 
-      pageTitle="ブログ"
-      pageDesc="ブログです。"
-      pagePath={location.pathname}
-    />
-
+  <Layout
+    pageTitle="ブログ"
+    pageDesc="ブログです。"
+    pagePath={location.pathname}
+  >
     <section className="content bloglist">
       <div className="container">
         <h1 className="bar">RECENT POSTS</h1>
@@ -92,7 +90,7 @@ const BlogList: React.VFC<Props> = ({data, location, pageContext}) => (
         </ul>
       </div>
     </section>
-  </>
+  </Layout>
 )
 
 export const query = graphql`

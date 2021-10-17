@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
-import SEO from "../components/seo"
+import Layout from "../components/layout"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheckSquare, faClock, faFolderOpen } from "@fortawesome/free-regular-svg-icons"
@@ -58,7 +58,6 @@ type Props = {
   location: {
     pathname: string
   }
-
 }
 
 const BlogPost: React.VFC<Props> = ({ data, pageContext, location }) => {
@@ -66,17 +65,16 @@ const BlogPost: React.VFC<Props> = ({ data, pageContext, location }) => {
   const description = documentToPlainTextString(JSON.parse(data.contentfulBlogPost.content.raw)).slice(0, 70)
 
   return (
-    <>
-
-      <SEO
-        pagetitle={data.contentfulBlogPost?.title}
-        pagedesc={description}
-        pagepth={location.pathname}
-        blogimg={`https:${data.contentfulBlogPost?.eyecatch?.file?.url}`}
-        pageimgw={data.contentfulBlogPost?.eyecatch?.file?.details?.image?.width}
-        pageimg={data.contentfulBlogPost?.eyecatch?.file?.details?.image?.height}
-      />
-
+    <Layout
+      pageTitle={data.contentfulBlogPost?.title}
+      pageDesc={description}
+      pagePath={location.pathname}
+      /*
+      blogimg={`https:${data.contentfulBlogPost?.eyecatch?.file?.url}`}
+      pageimgw={data.contentfulBlogPost?.eyecatch?.file?.details?.image?.width}
+      pageimg={data.contentfulBlogPost?.eyecatch?.file?.details?.image?.height}
+      */
+    >
       <div className="eyecatch">
         <figure>
           <Img
@@ -135,7 +133,7 @@ const BlogPost: React.VFC<Props> = ({ data, pageContext, location }) => {
 
         </div>
       </article>
-    </>
+    </Layout>
   )
 }
 
