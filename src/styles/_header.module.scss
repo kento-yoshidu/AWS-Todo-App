@@ -1,0 +1,34 @@
+.header {
+	position: relative;
+	//margin-top: 60px;
+	//height: calc(100vh - 60px);
+	height: 100vh;
+	width: 100%;
+
+	h1 {
+		position: absolute;
+		top: 30%;
+		left: 45%;
+		font-size: 6rem;
+		transform: translate(-50%, -50%);
+		font-weight: 500;
+		background-color: saddlebrown;
+		padding: 10px 20px;
+	}
+
+	.imgWrapper {
+		border: 1px solid red;
+    height: 100vh;
+    overflow: hidden;
+	}
+
+	color: #ddd;
+}
+
+@media screen and (maz-width: 768px) {
+	.header {
+		.img {
+			width: 100%;
+		}
+	}	
+}

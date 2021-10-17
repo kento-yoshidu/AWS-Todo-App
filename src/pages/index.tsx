@@ -4,9 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
-import Footer from "../components/footer"
-
-import Hero from "../images/hero.jpg"
+import Header from "../components/header"
 
 const Styles = require("../styles/_index.module.scss")
 
@@ -15,19 +13,11 @@ type Props = {
 }
 const IndexPage: React.VFC<Props> = ({ data }) => (
   <Layout>
-    <header className={Styles.header}>
-      <div className={Styles.imgWrapper}>
-        <img
-          src={ Hero }
-          alt="ヘッダー画像"
-          className="img"
-        />
-      </div>
 
-      <h1>
-        Gatsby Cafe Site
-      </h1>
-    </header>
+    <Header
+      imagePath={data?.file?.childImageSharp?.gatsbyImageData}
+      alt="珈琲の画像"
+    />
 
     <section className={Styles.items}>
       <div className={Styles.container}>
@@ -107,13 +97,6 @@ export default IndexPage
 
 export const query = graphql`
 query IndexPage{
-  hero: file(relativePath: {eq: "hero.jpg"}) {
-    childImageSharp {
-      fluid(maxWidth: 1600) {
-        ...GatsbyImageSharpFluid_withWebp
-      }
-    }
-  }
   fruit: file(relativePath: {eq: "fruit.jpg"}) {
     childImageSharp {
       fluid(maxWidth: 1600) {
@@ -162,6 +145,13 @@ query IndexPage{
           description
         }
       }
+    }
+  }
+  file(relativePath: {eq: "hero.jpg"}) {
+    id
+    childImageSharp {
+      id
+      gatsbyImageData(layout: FULL_WIDTH)
     }
   }
 }
