@@ -1,9 +1,15 @@
 $main-color: #399;
 
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
 html {
+	background-color: #323232;
   font-size: 62.5%;
 	font-family: 'Avenir Next', 'Segoe UI', Helvetica, sans-serif;
-	color: #444;
 	box-sizing: border-box;
 }
 

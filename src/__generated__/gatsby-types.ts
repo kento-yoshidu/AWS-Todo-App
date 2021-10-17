@@ -4762,20 +4762,13 @@ type BlogListQuery = { readonly allContentfulBlogPost: { readonly edges: Readonl
         )> }
       ) }> } };
 
-type CatBlogListQueryVariables = Exact<{
-  catid: Scalars['String'];
-  skip: Scalars['Int'];
-  limit: Scalars['Int'];
-}>;
+type AboutQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type CatBlogListQuery = { readonly allContentfulBlogPost: { readonly edges: ReadonlyArray<{ readonly node: (
-        Pick<ContentfulBlogPost, 'title' | 'id' | 'slug'>
-        & { readonly eyecatch: Maybe<(
-          Pick<ContentfulAsset, 'description'>
-          & { readonly fluid: Maybe<GatsbyContentfulFluid_withWebpFragment> }
-        )> }
-      ) }> } };
+type AboutQuery = { readonly file: Maybe<(
+    Pick<File, 'id'>
+    & { readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
+  )> };
 
 type BlogPostQueryVariables = Exact<{
   id: Scalars['String'];
@@ -4798,52 +4791,20 @@ type BlogPostQuery = { readonly contentfulBlogPost: Maybe<(
     )> }
   )> };
 
-type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+type CatBlogListQueryVariables = Exact<{
+  catid: Scalars['String'];
+  skip: Scalars['Int'];
+  limit: Scalars['Int'];
+}>;
 
 
-type Unnamed_1_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'lang' | 'description' | 'siteUrl' | 'locale'>> }> };
-
-type AboutQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AboutQuery = { readonly file: Maybe<(
-    Pick<File, 'id'>
-    & { readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
-  )> };
-
-type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type IndexPageQuery = { readonly fruit: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }>, readonly grain: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }>, readonly beverage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }>, readonly berry: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> }>, readonly allContentfulBlogPost: { readonly edges: ReadonlyArray<{ readonly node: (
+type CatBlogListQuery = { readonly allContentfulBlogPost: { readonly edges: ReadonlyArray<{ readonly node: (
         Pick<ContentfulBlogPost, 'title' | 'id' | 'slug'>
         & { readonly eyecatch: Maybe<(
           Pick<ContentfulAsset, 'description'>
           & { readonly fluid: Maybe<GatsbyContentfulFluid_withWebpFragment> }
         )> }
-      ) }> }, readonly file: Maybe<(
-    Pick<File, 'id'>
-    & { readonly childImageSharp: Maybe<Pick<ImageSharp, 'id' | 'gatsbyImageData'>> }
-  )> };
-
-type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyContentfulFixed_tracedSVGFragment = Pick<ContentfulFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyContentfulFixed_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyContentfulFixed_withWebpFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyContentfulFixed_withWebp_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyContentfulFluidFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulFluid_tracedSVGFragment = Pick<ContentfulFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulFluid_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyContentfulFluid_withWebp_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+      ) }> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -4863,15 +4824,54 @@ type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageShar
 
 type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
+type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
 type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
+type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type IndexPageQuery = { readonly allContentfulBlogPost: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<ContentfulBlogPost, 'title' | 'id' | 'slug'>
+        & { readonly eyecatch: Maybe<(
+          Pick<ContentfulAsset, 'description'>
+          & { readonly fluid: Maybe<GatsbyContentfulFluid_withWebpFragment> }
+        )> }
+      ) }> }, readonly file: Maybe<(
+    Pick<File, 'id'>
+    & { readonly childImageSharp: Maybe<Pick<ImageSharp, 'id' | 'gatsbyImageData'>> }
+  )> };
+
+type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type Unnamed_1_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'lang' | 'description' | 'siteUrl' | 'locale'>> }> };
+
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'apiRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+
+type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_tracedSVGFragment = Pick<ContentfulFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyContentfulFixed_withWebpFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulFixed_withWebp_noBase64Fragment = Pick<ContentfulFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyContentfulFluidFragment = Pick<ContentfulFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_tracedSVGFragment = Pick<ContentfulFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyContentfulFluid_withWebp_noBase64Fragment = Pick<ContentfulFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
 }

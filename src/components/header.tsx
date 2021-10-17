@@ -10,15 +10,14 @@ interface Props {
 }
 
 const Header: React.VFC<Props> = ({imagePath, alt}) => (
-    <header className={Styles.header}>
-      <div className={Styles.imgWrapper}>
-        <GatsbyImage
-          image={imagePath}
-          alt={alt}
-        />
-      </div>
-    </header>
-
+  <header className={Styles.header}>
+    <GatsbyImage
+      image={imagePath}
+      alt={alt}
+      className={Styles.imgWrapper}
+      imgClassName={Styles.img}
+    />
+  </header>
 )
 
 export default Header
