@@ -1,15 +1,41 @@
-/* フード */
-.items {
-	padding: 30px 0;
-	text-align: center;
-	border: 1px solid red;
-  h2 {
-    color: #477294;
-    margin-bottom: 20px;
-    font-size: 36px;
-  }
-  span {
-    font-weight: normal;
+.sec1 {
+	position: relative;
+	padding: 50px 0;
+	display: flex;
+	justify-content: end;
+	.wrapper {
+		background-color: #f6f4ef;
+		width: 94%;
+		padding: 80px 20px 80px 80px;
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    .boxWrapper {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      .box {
+        height: 20vh;
+        width: 22%;
+        background-color: red;
+      }
+    }
+	}
+}
+
+@media screen and (max-width: 768px) {
+  .sec1 {
+    .wrapper {
+      padding: 20px 0 20px 20px;
+      .boxWrapper {
+        overflow-x: scroll;
+        .box {
+          min-width: 50%;
+        }
+      }
+    }
   }
 }
 

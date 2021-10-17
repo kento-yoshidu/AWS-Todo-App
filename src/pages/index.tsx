@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import Header from "../components/header"
+import { faCcVisa } from "@fortawesome/free-brands-svg-icons"
 
 const Styles = require("../styles/_index.module.scss")
 
@@ -19,50 +20,25 @@ const IndexPage: React.VFC<Props> = ({ data }) => (
       alt="珈琲の画像"
     />
 
-    <section className={Styles.items}>
-      <div className={Styles.container}>
-        <h2 className="bar">Food <span>Essence</span></h2>
+    <section className={Styles.sec1}>
+      <div className={Styles.wrapper}>
+        <h2>Site Map</h2>
 
-        <div className={Styles.details}>
-          <div className={Styles.detail}>
-            <figure>
-              <Img fluid={data.fruit?.childImageSharp?.fluid} alt="" />
-            </figure>
-            <h3>フルーツ</h3>
-            <p>FRUIT</p>
-            <p>甘くてすっぱくておいしい果実たち。<br />旬のフルーツを満喫します。</p>
+        <div className={Styles.boxWrapper}>
+          <div className={Styles.box}>
+            hogehoge
           </div>
-
-          <div className={Styles.detail}>
-            <figure>
-              <Img fluid={data.grain?.childImageSharp?.fluid} alt="" />
-            </figure>
-            <h3>穀物</h3>
-            <p>GRAIN</p>
-            <p>食事の基本となる穀物。<br />毎日の活動のエネルギー源になります。</p>
+          <div className={Styles.box}>
+            hogehoge
           </div>
-
-          <div className={Styles.detail}>
-            <figure>
-              <Img fluid={data.beverage?.childImageSharp?.fluid} alt="" />
-            </figure>
-            <h3>飲み物</h3>
-            <p>BEVERAGE</p>
-            <p>リラックスするのに欠かせない飲み物。<br />お気に入りの一杯はありますか？</p>
+          <div className={Styles.box}>
+            hogehoge
+          </div>
+          <div className={Styles.box}>
+            hogehoge
           </div>
         </div>
       </div>
-    </section>
-
-    <section className={Styles.photo}>
-      <h2 className="sr-only">Photo</h2>
-      <figure>
-        <Img
-          fluid={data.berry.childImageSharp.fluid}
-          alt="赤く熟したベリー"
-          style={{ height: "100%" }}
-        />
-      </figure>
     </section>
 
     <section>
@@ -97,34 +73,6 @@ export default IndexPage
 
 export const query = graphql`
 query IndexPage{
-  fruit: file(relativePath: {eq: "fruit.jpg"}) {
-    childImageSharp {
-      fluid(maxWidth: 1600) {
-        ...GatsbyImageSharpFluid_withWebp
-      }
-    }
-  }
-  grain: file(relativePath: {eq: "grain.jpg"}) {
-    childImageSharp {
-      fluid(maxWidth: 1600) {
-        ...GatsbyImageSharpFluid_withWebp
-      }
-    }
-  }
-  beverage: file(relativePath: {eq: "beverage.jpg"}) {
-    childImageSharp {
-      fluid(maxWidth: 1600) {
-        ...GatsbyImageSharpFluid_withWebp
-      }
-    }
-  }
-  berry: file(relativePath: {eq: "berry.jpg"}) {
-    childImageSharp {
-      fluid(maxWidth: 1600) {
-        ...GatsbyImageSharpFluid_withWebp
-      }
-    }
-  }
   allContentfulBlogPost(
     sort: {
       order: DESC,
