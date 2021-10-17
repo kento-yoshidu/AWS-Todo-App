@@ -8,6 +8,7 @@ type Props = {
   pagePath?: string
   pageimg?: string
 }
+
 const Seo: React.VFC<Props> = props => {
   const data = useStaticQuery(graphql`
     query {

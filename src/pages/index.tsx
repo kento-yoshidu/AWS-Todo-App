@@ -3,8 +3,7 @@ import { graphql, Link } from 'gatsby'
 import { StaticImage } from "gatsby-plugin-image"
 import Img from "gatsby-image"
 
-import SEO from "../components/seo"
-import FixedHeader from "../components/FixedHeader"
+import Layout from "../components/layout"
 import Footer from "../components/footer"
 
 import Hero from "../images/hero.jpg"
@@ -15,11 +14,7 @@ type Props = {
   data: GatsbyTypes.IndexPageQuery
 }
 const IndexPage: React.VFC<Props> = ({ data }) => (
-  <>
-    <SEO />
-
-    {/*<FixedHeader />*/}
-
+  <Layout>
     <header className={Styles.header}>
       <div className={Styles.imgWrapper}>
         <img
@@ -105,9 +100,7 @@ const IndexPage: React.VFC<Props> = ({ data }) => (
         </div>
       </div>
     </section>
-
-    <Footer />
-  </>
+  </Layout>
 )
 
 export default IndexPage

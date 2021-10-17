@@ -2,20 +2,22 @@ import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
-import SEO from "../components/seo"
+import Layout from "../components/layout"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUtensils, faCheckSquare } from "@fortawesome/free-solid-svg-icons"
 
-const AboutPage = ({ data, location }) => (
-  <>
-    <SEO
-      pagetitle="このWebサイトについて"
-      pagedesc="説明"
-      pagepath={location.pathname}
-      pageimgw={data.about.childImageSharp.original.width}
-      pageimgh={data.about.childImageSharp.original.height}
-    />
+interface Props {
+  data: GatsbyTypes.AboutQuery,
+  location: string
+}
+
+const AboutPage: React.VFC<Props> = ({ data, location }) => (
+  <Layout
+    pageTitle="このWebサイトについて"
+    pageDesc="説明"
+    pagePath={location.pathname}
+  >
 
     <div className="eyecatch">
       <figure>
@@ -63,13 +65,13 @@ const AboutPage = ({ data, location }) => (
         </div>
       </div>
     </article>
-  </>
+  </Layout>
 )
 
 export default AboutPage
 
 export const query = graphql`
-  query {
+  query About {
     about: file(relativePath: {eq: "about.jpg"}) {
       childImageSharp {
         fluid(maxWidth: 1600) {
