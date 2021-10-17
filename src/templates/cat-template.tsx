@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
-import SEO from "../components/seo"
+import Layout from "../components/layout"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -28,14 +28,11 @@ type Props = {
 }
 
 const CatBlogList: React.VFC<Props> = ({data, location, pageContext}) => (
-  <>
-
-    <SEO 
-      pageTitle={`CATEGORY: ${pageContext.catname}`}
-      pageDesc={`「${pageContext.catname}」カテゴリの記事一覧です。`}
-      pagePath={location.pathname}
-    />
-
+  <Layout
+    pageTitle={`category: ${pageContext.catname}`}
+    pageDesc={`「${pageContext.catname}」カテゴリの記事一覧です。`}
+    pagePath={location.pathname}
+  >
     <section className="content bloglist">
       <div className="container">
         <h1 className="bar">CATEGORY: {pageContext.catname}</h1>
@@ -93,7 +90,7 @@ const CatBlogList: React.VFC<Props> = ({data, location, pageContext}) => (
         </ul>
       </div>
     </section>
-  </>
+  </Layout>
 )
 
 export const query = graphql`

@@ -1,8 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
+import Header from "../components/header"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUtensils, faCheckSquare } from "@fortawesome/free-solid-svg-icons"
@@ -19,13 +20,10 @@ const AboutPage: React.VFC<Props> = ({ data, location }) => (
     pagePath={location.pathname}
   >
 
-    <div className="eyecatch">
-      <figure>
-        <Img 
-          fluid={data.about.childImageSharp.fluid}
-        />
-      </figure>
-    </div>
+    <Header
+      imagePath={data?.file?.childImageSharp?.gatsbyImageData}
+      alt="hoge"
+    />
 
     <article className="content">
       <div className="container">
@@ -72,16 +70,10 @@ export default AboutPage
 
 export const query = graphql`
   query About {
-    about: file(relativePath: {eq: "about.jpg"}) {
+    file(relativePath: {eq: "about.jpg"}) {
+      id
       childImageSharp {
-        fluid(maxWidth: 1600) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-        original {
-          height
-          src
-          width
-        }
+        gatsbyImageData(layout: FULL_WIDTH)
       }
     }
   }
