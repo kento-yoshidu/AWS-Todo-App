@@ -1,10 +1,11 @@
-const path = require('path')
+import type { GatsbyNode } from "gatsby"
+import path from 'path'
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
   const blogresult = await graphql(`
-    query {
+    query BlogResult {
       allContentfulBlogPost (
         sort: {
           fields: publishDate,
@@ -110,3 +111,5 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 }
+
+export { createPages }
