@@ -7,23 +7,11 @@ import Layout from "../components/layout"
 import Header from "../components/header"
 import { faCcVisa } from "@fortawesome/free-brands-svg-icons"
 
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 const Styles = require("../styles/_index.module.scss")
 
 type Props = {
   data: GatsbyTypes.IndexPageQuery
 }
-const settings = {
-  autoplay: true,
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
 
 const IndexPage: React.VFC<Props> = ({ data }) => (
   <Layout>
@@ -32,27 +20,6 @@ const IndexPage: React.VFC<Props> = ({ data }) => (
       imagePath={data?.file?.childImageSharp?.gatsbyImageData}
       alt="珈琲の画像"
     />
-
-    <Slider {...settings}>
-      <div>
-        <h3>1</h3>
-      </div>
-      <div>
-        <h3>2</h3>
-      </div>
-      <div>
-        <h3>3</h3>
-      </div>
-      <div>
-        <h3>4</h3>
-      </div>
-      <div>
-        <h3>5</h3>
-      </div>
-      <div>
-        <h3>6</h3>
-      </div>
-    </Slider>
 
     <section className={Styles.sec1}>
       <div className={Styles.wrapper}>
