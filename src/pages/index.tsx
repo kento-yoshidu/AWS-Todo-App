@@ -88,8 +88,8 @@ query IndexPage{
         id
         slug
         eyecatch {
-          fluid(maxWidth: 573) {
-            ...GatsbyContentfulFluid_withWebp
+          fluid {
+            src
           }
           description
         }
