@@ -27,18 +27,6 @@ const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, report
           }
         }
       }
-      allContentfulCategory {
-        edges {
-          node {
-            categorySlug
-            id
-            category
-            blogpost {
-              title
-            }
-          }
-        }
-      }
     }
   `)
 
@@ -84,6 +72,7 @@ const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, report
     })
   })
 
+  /*
   blogresult.data.allContentfulCategory.edges.forEach(({ node }) => {
     const catPostsPerPage = 6
     const catPosts = node.blogpost.length
@@ -110,6 +99,7 @@ const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, report
       })
     })
   })
+  */
 }
 
 export { createPages }

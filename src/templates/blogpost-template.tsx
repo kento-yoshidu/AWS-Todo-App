@@ -7,12 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheckSquare, faClock, faFolderOpen } from "@fortawesome/free-regular-svg-icons"
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons"
 
-//import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-//import resolveResponse from "contentful-resolve-response"
-
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS } from "@contentful/rich-text-types"
-//import { config } from "@fortawesome/fontawesome-svg-core"
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"
 
 const Styles = require("../styles/_blogPost.module.scss")
@@ -109,7 +105,7 @@ const BlogPost: React.VFC<Props> = ({ data, pageContext, location }) => {
           </aside>
 
           <div className="postbody">
-            {renderRichText(data.contentfulBlogPost?.content, options)}
+            {renderRichText(data?.contentfulBlogPost?.content, options)}
           </div>
 
           <ul className="postlink">
@@ -166,15 +162,6 @@ export const query = graphql`
       }
       content {
         raw
-        references {
-          ... on ContentfulAsset {
-            contentful_id
-            __typename
-            file {
-              url
-            }
-          }
-        }
       }
     }
   }
