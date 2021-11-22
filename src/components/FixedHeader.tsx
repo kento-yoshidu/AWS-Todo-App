@@ -5,13 +5,7 @@ const Styles = require("../styles/_FixedHeader.module.scss")
 const FixedHeader: React.VFC = () => {
 	return (
 		<nav className={Styles.fixedHeader}>
-			<ul className={Styles.linkList}>
-				<li className={Styles.linkItem}><a href="#">お知らせ</a></li>
-				<li className={Styles.linkItem}><a href="#">お知らせ</a></li>
-				<li className={Styles.linkItem}><a href="#">お知らせ</a></li>
-				<li className={Styles.linkItem}><a href="#">お知らせ</a></li>
-				<li className={Styles.linkItem}><a href="#">お知らせ</a></li>
-			</ul>
+      <h1>Gatsby & Contentful</h1>
 		</nav>
 	)
 }

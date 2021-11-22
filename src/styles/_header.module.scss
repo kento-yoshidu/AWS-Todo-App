@@ -50,16 +50,19 @@
         height: 70vh;
       }
       .title {
-        top: 5%;
+        top: 10%;
         bottom: 0;
+        font-size: 2.5rem;
         z-index: 3;
       }
       .text-wrapper {
         top:auto;
-        bottom: 5%;
+        bottom: 15%;
         max-width: 80%;
         p {
-          font-size: 1.5rem;
+          margin-bottom: 10px;
+          font-size: 1.45rem;
+          line-height: 1.4;
         }
       }
     }
