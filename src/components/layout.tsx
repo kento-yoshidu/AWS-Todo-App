@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react"
 
 import SEO from "../components/seo"
+import FixHeader from "../components/FixedHeader"
 import Footer from "../components/footer"
 
 interface Props {
@@ -16,6 +17,8 @@ const Layout: React.VFC<Props> = ({children, pageTitle, pageDesc, pagePath}) => 
       pageTitle={pageTitle}
       pageDesc={pageDesc}
     />
+
+    <FixHeader />
 
     {children}
 

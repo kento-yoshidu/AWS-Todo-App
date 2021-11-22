@@ -23,20 +23,48 @@ const IndexPage: React.VFC<Props> = ({ data }) => (
 
     <section className={Styles.sec1}>
       <div className={Styles.wrapper}>
-        <h2>Site Map</h2>
+        <h2>News</h2>
 
         <div className={Styles.boxWrapper}>
-          <div className={Styles.box}>
-            hogehoge
+          <div
+            className={Styles.box}
+          >
+            <StaticImage
+              src="../images/hero2.jpg"
+              alt="hoge"
+              className={Styles.imgWrapper}
+            />
+            <button>hoge</button>
           </div>
-          <div className={Styles.box}>
-            hogehoge
+          <div
+            className={Styles.box}
+          >
+            <StaticImage
+              src="../images/hero2.jpg"
+              alt="hoge"
+              className={Styles.imgWrapper}
+            />
+            <button>hoge</button>
           </div>
-          <div className={Styles.box}>
-            hogehoge
+          <div
+            className={Styles.box}
+          >
+            <StaticImage
+              src="../images/hero2.jpg"
+              alt="hoge"
+              className={Styles.imgWrapper}
+            />
+            <button>hoge</button>
           </div>
-          <div className={Styles.box}>
-            hogehoge
+          <div
+            className={Styles.box}
+          >
+            <StaticImage
+              src="../images/hero2.jpg"
+              alt="hoge"
+              className={Styles.imgWrapper}
+            />
+            <button>hoge</button>
           </div>
         </div>
       </div>
