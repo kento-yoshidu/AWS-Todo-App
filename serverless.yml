@@ -21,11 +21,11 @@ custom:
   apiGatewayThrottling:
     maxRequestsPerSecond: 10
     maxConcurrentRequests: 5
-  bucketName: sls-todo-app
+  bucketName: aws-todo-app-potsunen
   s3Sync:
     buckets:
       - bucketName: ${self:custom.bucketName}
-        localDir: static/build
+        localDir: static/out
 
 functions:
   taskList:
