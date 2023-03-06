@@ -21,11 +21,11 @@ custom:
   apiGatewayThrottling:
     maxRequestsPerSecond: 10
     maxConcurrentRequests: 5
-  bucketName: sls-todo-app
+  bucketName: aws-todo-app-potsunen
   s3Sync:
     buckets:
       - bucketName: ${self:custom.bucketName}
-        localDir: static/build
+        localDir: static/out
 
 functions:
   taskList:
@@ -58,6 +58,11 @@ functions:
       - schedule: cron(0 0 * * ? *)
     environment:
       SLACK_WEBHOOK_URL: ${ssm:todo_slack_notifier_url}
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:Scan
+        Resource: 'arn:aws:dynamodb:*:*:table/tasks'
 
 resources:
   Resources:
