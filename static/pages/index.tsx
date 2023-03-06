@@ -14,33 +14,6 @@ type Tasks = {
   tasks: Task[]
 }
 
-/*
-function useData<T>(url: string): T | undefined {
-  const data$ = useRef<T>()
-
-  const subscribe = useCallback(
-    (onStoreChange: () => void): (() => void) => {
-      const controller = new AbortController()
-
-      fetch(url, { signal: controller.signal })
-        .then((res) => res.json())
-        .then((data) => {
-          data$.current = data
-
-          onStoreChange()
-        })
-
-      return () => {
-        controller.abort()
-      }
-    },
-    [url]
-  )
-
-  return useSyncExternalStore(subscribe, () => data$.current)
-}
-*/
-
 const fetchData = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_GATEWAY_URL}/tasks`)
 
@@ -73,10 +46,3 @@ const Home: NextPage = () => {
 }
 
 export default Home
-
-/*
-export const getServerSideProps = () => {
-
-
-}
-*/
