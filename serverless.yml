@@ -94,7 +94,7 @@ resources:
         Bucket:
           Ref: StaticSiteS3Bucket
         PolicyDocument:
-          Statement: 
+          Statement:
             - Sid: PublicReadGetObject
               Effect: Allow
               Principal: "*"
