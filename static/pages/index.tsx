@@ -1,9 +1,8 @@
-import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { cpSync } from 'fs'
+
+import Header from './components/Header'
 
 type Task = {
   id: string
@@ -24,6 +23,7 @@ const fetchData = async () => {
 
 const Home: NextPage = () => {
   const [data, setData] = useState<Tasks | null>(null)
+
   useEffect(() => {
     fetchData()
       .then((data) => setData(data))
@@ -31,7 +31,9 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <h1>AWS Todo App 0.0.1</h1>
+
+      <Header />
+
       {data && (
         <ul>
           {data.tasks.map((task) => {
