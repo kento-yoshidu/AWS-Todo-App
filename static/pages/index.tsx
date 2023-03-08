@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 import styles from '../styles/Home.module.css'
 
-import Header from './components/Header'
+import Header from '../components/Header'
+import Form from '../components/Form'
+import { FONT_LOADER_MANIFEST } from 'next/dist/shared/lib/constants'
 
 type Task = {
   id: string
@@ -43,6 +45,10 @@ const Home: NextPage = () => {
           })}
         </ul>
       )}
+
+      <hr />
+
+      <Form />
     </div>
   )
 }
