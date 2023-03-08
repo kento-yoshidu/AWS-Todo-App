@@ -5,6 +5,12 @@ on:
     branches:
       - main
 
+env:
+  SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+  SLACK_USERNAME: ✨ AWS Todo App Bot
+  SLACK_CHANNEL: github-notifier
+  SLACK_ICON_EMOJI: 🍙
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,8 +18,31 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 16.x
 
       - name: Package install
         run: npm ci
         working-directory: ./static
+
+      - name: Build
+        run: npm run build
+        working-directory: ./static
+
+      - name: Test
+        run: npm run test
+        working-directory: ./static
+
+      - name: Slack Notification on Success
+        if: ${{ success() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_TITLE: ✅ Pull requests can be merged
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_MESSAGE: 'Pull requests can be merged ✨: ${{ github.repository }}'
+
+      - name: Slack Notification on Failure
+        if: ${{ failure() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_TITLE: ❌ Deploy Failure
+          SLACK_COLOR: ${{ job.status }}
