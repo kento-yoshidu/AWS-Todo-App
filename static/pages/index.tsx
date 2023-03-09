@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
-import styles from '../styles/Home.module.css'
 
 import Header from '../components/Header'
 import Form from '../components/Form'
@@ -32,7 +31,7 @@ const Home: NextPage = () => {
   }, [])
 
   return (
-    <div className={styles.container}>
+    <div>
 
       <Header />
 
