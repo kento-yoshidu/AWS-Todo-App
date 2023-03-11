@@ -32,22 +32,26 @@ const Home: NextPage = () => {
 
   return (
     <div>
-
       <Header />
 
-      {data && (
-        <ul>
-          {data.tasks.map((task) => {
-            return (
-              <li key={task.id}>{task.title}</li>
-            )
-          })}
-        </ul>
-      )}
+      <div className="my-16 w-1/2 mx-auto">
+        {data && (
+          <ul className="w-1/2 mx-auto my-12">
+            {data.tasks.map((task) => {
+              return (
+                <li
+                  key={task.id}
+                  className="my-3 text-lg"
+                >
+                  ・ {task.title}
+                </li>
+              )
+            })}
+          </ul>
+        )}
 
-      <hr />
-
-      <Form />
+        <Form />
+      </div>
     </div>
   )
 }
